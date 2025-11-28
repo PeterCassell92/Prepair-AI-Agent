@@ -39,8 +39,8 @@ function App() {
 
             {/* Down Arrow */}
             <div className="flex flex-col items-center">
-              <div className="w-1 h-12" style={{backgroundColor: '#48c8ef'}}></div>
-              <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[20px]" style={{borderTopColor: '#48c8ef'}}></div>
+              <div className="w-1 h-12" style={{backgroundColor: '#000000'}}></div>
+              <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[20px]" style={{borderTopColor: '#000000'}}></div>
             </div>
 
             {/* Decision Node */}
@@ -60,8 +60,8 @@ function App() {
                   NO
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="w-1 h-12" style={{backgroundColor: '#37c94f'}}></div>
-                  <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[20px]" style={{borderTopColor: '#37c94f'}}></div>
+                  <div className="w-1 h-12" style={{backgroundColor: '#000000'}}></div>
+                  <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[20px]" style={{borderTopColor: '#000000'}}></div>
                 </div>
                 <div id="confirmed-ready" className="text-white rounded-2xl p-8 shadow-xl w-full" style={{backgroundColor: '#37c94f'}}>
                   <h3 className="text-3xl font-bold text-center">Confirmed Ready</h3>
@@ -75,8 +75,8 @@ function App() {
                   YES
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="w-1 h-12" style={{backgroundColor: '#48c8ef'}}></div>
-                  <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[20px]" style={{borderTopColor: '#48c8ef'}}></div>
+                  <div className="w-1 h-12" style={{backgroundColor: '#000000'}}></div>
+                  <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[20px]" style={{borderTopColor: '#000000'}}></div>
                 </div>
                 <div className="bg-white rounded-2xl p-8 shadow-xl border-4" style={{borderColor: '#48c8ef'}}>
                   <h3 className="text-3xl font-bold mb-6" style={{color: '#2d7d95'}}>Procurement Agent</h3>
@@ -122,35 +122,34 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Arrow from Procurement Agent to Confirmed Ready */}
-                  <div className="flex flex-col items-center mt-8">
-                    <div className="w-1 h-12" style={{backgroundColor: '#37c94f'}}></div>
-                    <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[20px]" style={{borderTopColor: '#37c94f'}}></div>
-                    <div className="text-white px-6 py-2 rounded-full text-lg font-semibold mt-2" style={{backgroundColor: '#37c94f'}}>
-                      Materials Secured
-                    </div>
-                  </div>
                 </div>
               </div>
 
             </div>
 
-            {/* Connecting arrow from procurement to confirmed ready */}
-            <div className="relative w-full max-w-4xl">
-              <svg className="absolute w-full h-24 -mt-12" style={{overflow: 'visible'}}>
+            {/* Connecting arrow from procurement to confirmed ready with right angles */}
+            <div className="relative w-full max-w-4xl h-32">
+              <svg className="absolute w-full h-full" style={{overflow: 'visible'}}>
                 <defs>
                   <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                    <polygon points="0 0, 10 3, 0 6" fill="#37c94f" />
+                    <polygon points="0 0, 10 3, 0 6" fill="#000000" />
                   </marker>
                 </defs>
+                {/* Path: down from procurement, left across, up to confirmed ready */}
                 <path
-                  d="M 600 12 Q 400 60, 200 12"
-                  stroke="#37c94f"
+                  d="M 75% 0 L 75% 50 L 25% 50 L 25% 0"
+                  stroke="#000000"
                   strokeWidth="3"
                   fill="none"
                   markerEnd="url(#arrowhead)"
                 />
               </svg>
+              {/* Materials Secured label */}
+              <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="text-white px-6 py-2 rounded-full text-lg font-semibold" style={{backgroundColor: '#37c94f'}}>
+                  Materials Secured
+                </div>
+              </div>
             </div>
 
           </div>
